@@ -1,89 +1,74 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/10.12.2/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/10.12.2/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-white flex items-center justify-center z-50">
+        <dotlottie-player src="https://lottie.host/c9b31f8f-2575-48b6-96a0-aea2d6eb190e/fEr07pqgFz.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+
+    <!-- Main Content -->
+    <div id="main-content" class="container flex shadow-xl rounded-lg overflow-hidden max-w-5xl" style="display: none;">
+        <div class="login-section w-full md:w-1/2 bg-white p-8 flex flex-col justify-center items-center">
+            <img src="SL Logo.png" alt="Logo" class="logo mb-8">
+            <h2 class="text-2xl font-bold mb-8 text-gray-800">Login your</h2>
+            <form id="login-form" class="w-full px-6">
+                <div class="mb-4">
+                    <label for="username" class="block text-sm font-semibold text-gray-700">Username</label>
+                    <input type="text" id="username" name="username" class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 shadow-sm" required>
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block text-sm font-semibold text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 shadow-sm" required>
+                </div>
+                <div class="flex justify-between items-center mb-6">
+                    <a href="forgot-password.html" class="text-sm text-indigo-500 hover:underline">Forgot Password?</a>
+                </div>
+                <button type="submit" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-3 rounded-lg shadow-lg transition duration-300">Login</button>
+            </form>
+            <p class="mt-8 text-gray-600">Don't have an account? <a href="signup.html" class="text-indigo-500 hover:underline">Sign up</a></p>
+        </div>
+        <div class="welcome-section w-full md:w-1/2 bg-indigo-500 text-white p-8 flex flex-col justify-center items-center">
+            <h1 class="text-5xl font-bold mb-8 text-center">Welcome to Login Portal</h1>
+            <img src="login1.png" alt="Student Portal Image" class="portal-image w-3/4 max-w-xs">
+        </div>
+    </div>
+
+    <div id="login-snackbar">Account not found. Please sign up.</div>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById('preloader').style.display = 'none';
+                document.getElementById('main-content').style.display = 'flex';
+            }, 2000);
+        });
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('preloader').style.display = 'flex';
+            document.getElementById('main-content').style.display = 'none';
+
+            setTimeout(function() {
+                showLoginSnackbar();
+                document.getElementById('preloader').style.display = 'none';
+                document.getElementById('main-content').style.display = 'flex';
+            }, 2000);
+        });
+
+        function showLoginSnackbar() {
+            var snackbar = document.getElementById('login-snackbar');
+            snackbar.className = 'show';
+            setTimeout(function() { snackbar.className = snackbar.className.replace('show', ''); }, 3000);
         }
-      });
     </script>
-  </body>
+</body>
 </html>
